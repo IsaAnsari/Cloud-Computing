@@ -1,0 +1,35 @@
+AIM :- Installation and Configuration of virtualization using KVM.
+
+--------------------------------------------------------------------
+
+Step 1 :- Download, Install and Open Vmware Workstation. Click on Create a New Virtual Machine.
+
+Step 2 :- Select Typical(recommended) and then click on next.
+
+Step 3 :- Select Installer disc image file (iso) then from Browse select the ubuntu iso file and then click on next.
+
+Step 4 :- Provide all information and then click on next.
+
+Step 5 :- Give a name to your virtual machine and select a location to store your virtual machine and then click on next.
+
+Step 6 :- Specify disk capacity, select split virtual disk into multiple files and then click on next.
+
+Step 7 :- Keep the hardware requirements as it is and then click on finish.
+
+Step 8 :- Select Keyboard Layout and then click on continue.
+
+Step 9 :- Select Normal Installation and Download updates while installing Ubuntu and then click on continue.
+
+Step 10 :- Select Erase disk and install Ubuntu and then click on Install now.
+
+Step 11 :- In Write the changes to disk? Tab, Click on continue.
+
+Step 12 :- Select your region and click on continue.
+
+Step 13 :- Provide all the user informations and click on continue.
+
+Step 14 :- Background Installation windows.
+
+Step 15 :- Click on Restart now.
+
+Step 16 :- Enter your password and use virtual machine.
