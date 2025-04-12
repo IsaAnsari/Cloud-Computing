@@ -1,0 +1,50 @@
+AIM :- Create a Simple SOAP service.
+
+----------------------------------------
+
+Open NetBeans
+
+Step 1 :- To create Web Application, From File Menu Select New Project. In Categories select Java Web then
+in Projects select Web Application then click on next.
+
+Step 2 :- Give it a project name and then click on next.
+
+Step 3 :- Select GlassFish Server and then click on finish to create a Web Application.
+
+Step 4 :- To create Web Service, Right click on your project, click on new then select web service.
+
+Step 5 :- Give Web Service name and Package name then click on finish.
+
+Step 6 :- Right click on your code then select insert code.
+
+Step 7 :- From insert code tab, select Add Web Service Operation.
+
+Step 8 :- In Add Operation tab, give Operation name, Return type, Parameters and then click on ok.
+
+Step 9 :- Operation will be added in your code change the value in return add more operation.
+
+Step 10 :- Now, Right click on project and then click on Deploy.
+
+Step 11 :- Output screen after successful deploy.
+
+Step 12 :- Right click on your Web Service then click on Test Web Service to test.
+
+Step 13 :- To create Application. From File Menu Select New Project. In Categories select Java then in
+Projects select Java Application then click on next.
+
+Step 14 :- Give it a project name and then click on finish.
+
+Step 15 :- To create Web Service Client, Right click on your project, click on new then select web service
+client.
+
+Step 16 :- Click on Browse then select your web service and give package name then click on ok and Finish.
+
+Step 17 :- Right click on your code then select insert code.
+
+Step 18 :- From insert code tab, select Call Web Service Operation.
+
+Step 19 :- Select your operation and then click on ok. Add all operations one by one
+
+Step 20 :- After adding operations, add this code to run your app.
+
+Step 21 :- Run your App.
