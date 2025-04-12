@@ -1,0 +1,156 @@
+AIM :- Develop application to download image/video from server or upload image/video to server using MTOM techniques. 
+
+-----------------------------------------------------------------------------------------
+
+Open NetBeans
+
+Step 1 :- To create Server side Web Application, From File Menu Select New Project. In Categories select
+	  Java Web then in Projects select Web Application then click on next.
+
+Step 2 :- Give it a project name (MTOMServer) and then click on next.
+
+Step 3 :- Select GlassFish Server and then click on finish to create a Web Application.
+
+Step 4 :- To create Java file, Right click on your project, click on new then select Java Class.
+
+Step 5 :- Give it a class name (ImageWS), package name (mypkg) and then click on finish.
+
+Step 6 :- Replace this code in ImageWS.java file.
+
+-----------------------------------------------------------------------------------------------------------------
+
+package mypkg;
+import java.io.*;
+import javax.jws.Oneway;
+import javax.jws.WebService;
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.xml.ws.soap.MTOM;
+
+@MTOM(enabled = true, threshold = 60000)
+@WebService(serviceName = "ImageWS")
+public class ImageWS {
+    @WebMethod(operationName = "upload")
+    @Oneway
+    public void upload(@WebParam(name = "Filename") String Filename, @WebParam(name = "ImageBytes") byte[] ImageBytes) {
+        String filePath = "D:/upload/" + Filename;
+        try {
+            FileOutputStream fos = new FileOutputStream(filePath);
+ 	    BufferedOutputStream bos = new BufferedOutputStream(fos);
+ 	    bos.write(ImageBytes);
+ 	    bos.close();
+ 	    System.out.println("Received file: " + filePath);
+ 	} catch (Exception ex) {
+ 	    System.out.println(ex);
+ 	}
+    }
+
+    @WebMethod(operationName = "download")
+    public byte[] download(@WebParam(name = "Filename") String Filename) {
+        String filePath = "D:/Downloaded/" + Filename;
+ 	System.out.println("Sending file: " + filePath);
+        try {
+ 	    File file = new File(filePath);
+ 	    FileInputStream fis = new FileInputStream(file);
+ 	    BufferedInputStream bis = new BufferedInputStream(fis);
+ 	    byte[] fileBytes = new byte[(int) file.length()];
+ 	    bis.read(fileBytes);
+ 	    bis.close();
+ 	    return fileBytes;
+ 	} catch (Exception ex) {
+ 	    System.out.println(ex);
+ 	}
+ 	return null;
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Step 7 :- Right click on your project and click on Deploy.
+
+Step 8 :- Output after Successful deploy.
+
+Step 9 :- To create Client side Web Application, From File Menu Select New Project. In Categories select
+	  Java Web then in Projects select Web Application then click on next.
+
+Step 10 :- Give it a project name (MTOMClient) and then click on next.
+
+Step 11 :- Select GlassFish Server and then click on finish to create a Web Application.
+
+Step 12 :- To create JSP file, Right click on your project, click on new then select JSP.
+
+Step 13 :- Give it a File name (index) and click on finish.
+
+Step 14 :- Replace this code in index.jsp file.
+
+----------------------------------------------------------------------------------------------------------------
+
+<%@page import="java.io.BufferedOutputStream"%>
+<%@page import="java.io.FileOutputStream"%>
+<%@page import="java.io.FileInputStream"%>
+<%@page import="java.io.BufferedInputStream"%>
+<%@page import="java.io.File"%>
+<%@page import="javax.xml.ws.soap.MTOMFeature"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+ 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ 	<title>JSP Page</title>
+    </head>
+    <body>
+ 	<hr/>
+ 	<%-- Uploading File --%>
+ 	<%
+ 	    try {
+ 		mypkg.ImageWS_Service service = new mypkg.ImageWS_Service();
+ 		mypkg.ImageWS port = service.getImageWSPort(new MTOMFeature(60000));
+ 		String filePath = "D:/ABC.png";
+ 		File file = new File(filePath);
+ 		FileInputStream fis = new FileInputStream(file);
+ 		BufferedInputStream bis = new BufferedInputStream(fis);
+ 		String filename = file.getName();
+ 		byte[] imageBytes = new byte[(int) file.length()];
+ 		bis.read(imageBytes);
+ 		port.upload(filename, imageBytes);
+ 		bis.close();
+ 		out.println("File uploaded: " + filePath);<%@page import="java.io.BufferedOutputStream"%>
+	    } catch (Exception ex) {
+ 		out.println("Error: " + ex.getMessage());
+ 	    }
+ 	%>
+ 	<hr/>
+	<%-- Downloading File --%>
+ 	<%
+ 	    try {
+ 		mypkg.ImageWS_Service service = new mypkg.ImageWS_Service();
+ 		mypkg.ImageWS port = service.getImageWSPort();
+ 		String filename = "ABC.png";
+ 		String filePath = "D:/Downloaded/" + filename;
+ 		byte[] fileBytes = port.download(filename);
+ 		FileOutputStream fos = new FileOutputStream(filePath);
+ 		BufferedOutputStream bos = new BufferedOutputStream(fos);
+ 		bos.write(fileBytes);
+ 		bos.close();
+ 		out.println("File downloaded: " + filePath);
+ 	    } catch (Exception ex) {
+ 		out.println("Error: " + ex.getMessage());
+ 	    }
+ 	%>
+ 	<hr/>
+    </body>
+</html>
+
+-----------------------------------------------------------------------------------------------------------------
+
+Step 15 :- To create Web Service Client, Right click on your project, click on new then select web service client.
+
+Step 16 :- Click on Browse then select your web service and give package name then click on ok and Finish.
+
+Step 17 :- Right click on project, go to properties.
+
+Step 18:- Go to libraries, click on add library, select ‘JAX-WS 2.2.6’, click on Add Library and then click on ok.
+
+Step 19 :- Run your App.
+
+Step 20 :- Uploaded and Downloaded image in there respective folder.
