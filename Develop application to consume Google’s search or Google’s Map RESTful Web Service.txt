@@ -1,0 +1,34 @@
+AIM :- Develop application to consume Google’s search / Google’s Map RESTful Web
+service. 
+
+-------------------------------------------------------------------------------------
+
+Step 1 :- Search “google cloud console” in any browser, login to your gmail account and Click on console.
+
+Step 2 :- In select project tab, Click on new project.
+
+Step 3 :- Give a project name and then click on create.
+
+Step 4 :- Project Dashboard will appear.
+
+Step 5 :- In left panel, in APIs and services, Click on Enabled APIs and services.
+
+Step 6 :- Click on + ENABLE APIS AND SERVICES.
+
+Step 7 :- Search for ‘Custom Search Api’.
+
+Step 8 :- Click on Custom Search Api.
+
+Step 9 :- Click on Enable and then Try this Api.
+
+Step 10 :- Click on control panel.
+
+Step 11 :- Give a Search engine name, then provide a site url "www.google.com" and then click on Add.
+
+Step 12 :- Click on I’m not a robot and then click on create.
+
+Step 13 :- Copy the generated code.
+
+Step 14 :- Open VS code editor and paste the code in HTML file and then Run it by Click on GO Live.
+
+Step 15 :- Consume Google Search.
