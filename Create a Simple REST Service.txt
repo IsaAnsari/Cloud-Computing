@@ -1,0 +1,57 @@
+AIM :- Create a Simple REST Service. 
+
+-------------------------------------------
+
+Open IDLE
+
+Step 1 :- Write this code on python.
+
+---------------------------------------------------------------------------------
+
+from flask import Flask,jsonify,request
+
+app = Flask(__name__)
+data = [
+    {'id':1,'name':'Item 1'},
+    {'id':2,'name':'Item 2'},
+]
+
+@app.route('/items',methods=['GET'])
+def get_items():
+    return jsonify({'items':data})
+
+@app.route('/items/<int:item_id>',methods=['GET'])
+def get_item(item_id):
+    item = next((item for item in data if item['id']==item_id),None)
+
+    if item:
+        return jsonify({'item':item})
+    else:
+        return jsonify({'message':'Item not Found'}),404
+
+@app.route('/items',methods=['POST'])
+def add_item():
+    new_item = {'id':len(data)+1,'name':request.json['name']}
+    data.append(new_item)
+    return jsonify({'message':'Item added successfully','item':new_item}),201
+
+if __name__=='__main__':
+    app.run(debug=True)
+
+-------------------------------------------------------------------------------------
+
+Step 2 :- Run this python script in CMD.
+
+	> python <filename.py>
+
+Step 3 :- Ctrl + click on "http://127.0.0.1:5000".
+
+Step 4 :- Type or Paste url "http://127.0.0.1:5000/items" to display all records.
+
+Step 5 :- - Type or Paste "http://127.0.0.1:5000/items/1" to display item with id 1.
+
+Step 6 :- Run this command in new CMD terminal to add new record.
+
+	 Invoke-WebRequest -Uri http://127.0.0.1:5000/items -Method Post -Headers @{“Content-Type” = “application/json”} -Body ‘{“name” : “New Item”}’ 
+
+Step 7 :- Type or Paste url "http://127.0.0.1:5000/items" to display all records.
