@@ -47,7 +47,7 @@ Step 19 :- Select your operation and then click on ok. Add all operations one by
 
 Step 20 :- After adding operations, add this code to run your app.
 
-pakage calculatorapp:
+pakage calculatorapp;
 import java.utill.*;
 
 public class CalculatorApp {
