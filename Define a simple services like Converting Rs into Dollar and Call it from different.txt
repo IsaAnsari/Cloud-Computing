@@ -48,4 +48,26 @@ Step 19 :- Select your operation and then click on ok.
 
 Step 20 :- After adding operation, add this code to run your app.
 
+pakage appconvertor;
+
+import java.utill.*;
+
+public class AppConvertor {
+
+    public static void main(String[] args) {
+        System.out.println("Enter the value in dollar :");
+	      Scanner sc = new Scanner(System.in);
+	      double rs = sc.nextDouble();
+	      double dollar = rupees(rs);
+	      System.out.println("this value in rupees : "+ dollar);
+    }
+
+    private static double rupees(double rs) {
+        mypkgs.CurrencyCon_service = new mypkgs.CurrencyCon_service();
+	      mypkgs.CurrencyCon port = service.getCurrencyConPort();
+	      return port.rupees(rs);
+    }
+
+}
+
 Step 21 :- Run your App.
