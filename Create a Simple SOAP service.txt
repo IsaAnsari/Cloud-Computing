@@ -55,37 +55,37 @@ public class CalculatorApp {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the value of x :");
-	      int x = sc.nextInt();
-	      System.out.println("Enter the value of y :");
-	      int y = sc.nextInt();
-	      System.out.println("Add : "+addition(x, y));
-	      System.out.println("Sub : "+sub(x, y));
-	      System.out.println("Mul : "+mul(x, y));
-	      System.out.println("Div : "+div(x, y));
+	int x = sc.nextInt();
+	System.out.println("Enter the value of y :");
+	int y = sc.nextInt();
+	System.out.println("Add : "+addition(x, y));
+	System.out.println("Sub : "+sub(x, y));
+	System.out.println("Mul : "+mul(x, y));
+	System.out.println("Div : "+div(x, y));
     }
 
     private static int addition(int x, int y) {
         mypkgs.Calservice_Service service = new mypkgs.Calservice_Service();
-	      mypkgs.Calservice port = service.getCalservicePort();
-	      return port.addition(x, y);
+	mypkgs.Calservice port = service.getCalservicePort();
+	return port.addition(x, y);
     }
 
     private static int addition(int x, int y) {
         mypkgs.Calservice_Service service = new mypkgs.Calservice_Service();
-	      mypkgs.Calservice port = service.getCalservicePort();
-	      return port.sub(x, y);
+	mypkgs.Calservice port = service.getCalservicePort();
+	return port.sub(x, y);
     }
 
     private static int addition(int x, int y) {
         mypkgs.Calservice_Service service = new mypkgs.Calservice_Service();
-	      mypkgs.Calservice port = service.getCalservicePort();
-	      return port.mul(x, y);
+	mypkgs.Calservice port = service.getCalservicePort();
+	return port.mul(x, y);
     }
 
     private static int addition(int x, int y) {
         mypkgs.Calservice_Service service = new mypkgs.Calservice_Service();
-	      mypkgs.Calservice port = service.getCalservicePort();
-	      return port.div(x, y);
+	mypkgs.Calservice port = service.getCalservicePort();
+	return port.div(x, y);
     }
 
 }
