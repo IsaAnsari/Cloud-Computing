@@ -55,11 +55,11 @@ import java.utill.*;
 public class AppConvertor {
 
     public static void main(String[] args) {
-        System.out.println("Enter the value in dollar :");
+        System.out.println("Enter the value in rupees :");
 	      Scanner sc = new Scanner(System.in);
 	      double rs = sc.nextDouble();
 	      double dollar = rupees(rs);
-	      System.out.println("this value in rupees : "+ dollar);
+	      System.out.println("this value in dollar : "+ dollar);
     }
 
     private static double rupees(double rs) {
